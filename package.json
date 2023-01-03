@@ -1,8 +1,10 @@
 {
+  "type": "module",
   "scripts": {
-    "start": "node index.js"
+    "start": "node common/map_action_traces.js"
   },
   "dependencies": {
+    "@greymass/eosio": "^0.6.8",
     "substreams": "^0.1.5"
   }
 }

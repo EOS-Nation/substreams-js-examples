@@ -4,7 +4,7 @@
 
 ```bash
 $ npm install
-$ node index.js
+$ npm start
 
 File already exists: QmUc8qGvJ8rVsTQV6L2pvZEEwpfw3K6LxcxX9FMvF4cPB4
 ActionTrace {
