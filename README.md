@@ -1,8 +1,14 @@
 # Substreams Examples
 
+## Requirements
+
+- [Node.js (LTS or Current)](https://nodejs.org/en/)
+
 ## Quickstart
 
 ```bash
+$ git clone https://github.com/EOS-Nation/substreams-js-examples.git
+$ cd substreams-js-examples
 $ npm install
 $ npm start
 
