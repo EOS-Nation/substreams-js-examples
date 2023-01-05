@@ -2,7 +2,7 @@ import { Substreams, download } from "substreams";
 
 // User input
 const host = "eos.firehose.eosnation.io:9001";
-const substream = "https://eos.mypinata.cloud/ipfs/Qmdf7GT6jaT9NB3XPLvss8YxuHiSAC1PP1xm9UqLbuouYT";
+const substream = "https://eos.mypinata.cloud/ipfs/QmPZmoPArzW84yh1tvYfcf1DtFUDGap6CTGcFccUKJr5YB";
 const outputModules = ["map_db_ops"];
 const startBlockNum = "283000000";
 const stopBlockNum = "283001000";
@@ -19,11 +19,11 @@ const substreams = new Substreams(host, {
     const {modules, registry} = await download(substream);
     
     // Find Protobuf message types
-    const DatabaseOperations = registry.findMessage("antelope.common.v1.DatabaseOperations");
-    if ( !DatabaseOperations) throw new Error("Could not find DatabaseOperations message type");
+    const DBOps = registry.findMessage("sf.antelope.type.v2.DBOps");
+    if ( !DBOps) throw new Error("Could not find DBOps message type");
     
     substreams.on("mapOutput", output => {
-        const { dbOps } = DatabaseOperations.fromBinary(output.data.mapOutput.value);
+        const { dbOps } = DBOps.fromBinary(output.data.mapOutput.value);
         for ( const dbOp of dbOps ) {
             console.log(dbOp);
         }

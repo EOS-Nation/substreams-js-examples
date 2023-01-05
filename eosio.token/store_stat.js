@@ -4,7 +4,7 @@ import { decodeAccount } from "./abi/eosio.token.js";
 
 // User input
 const host = "eos.firehose.eosnation.io:9001";
-const substream = "https://eos.mypinata.cloud/ipfs/QmbttxBK9FbV8E8g8g8jp8rpYDvK8QzEwSx4bQmafngXpJ";
+const substream = "https://eos.mypinata.cloud/ipfs/QmfJGpVs9tdNHAjVQouTJ9GfaPKaxMEgHWEJEdzBQiAvhp";
 const outputModules = ["store_stat"];
 const startBlockNum = "2";
 const stopBlockNum = "1000";

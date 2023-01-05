@@ -2,7 +2,7 @@ import { Substreams, download } from "substreams";
 
 // User input
 const host = "eos.firehose.eosnation.io:9001";
-const substream = "https://eos.mypinata.cloud/ipfs/Qmdf7GT6jaT9NB3XPLvss8YxuHiSAC1PP1xm9UqLbuouYT";
+const substream = "https://eos.mypinata.cloud/ipfs/QmfE7kdRAPihhvij4ej3rUM2Sp3PcXQ9rTFCQPhPGB5dr5";
 const outputModules = ["map_action_traces"];
 const startBlockNum = "283000000";
 const stopBlockNum = "283001000";
@@ -19,10 +19,11 @@ const substreams = new Substreams(host, {
     const {modules, registry} = await download(substream);
     
     // Find Protobuf message types from registry
-    const ActionTraces = registry.findMessage("antelope.common.v1.ActionTraces");
+    const ActionTraces = registry.findMessage("sf.antelope.type.v1.ActionTrace");
     if ( !ActionTraces) throw new Error("Could not find ActionTraces message type");
 
     substreams.on("mapOutput", output => {
+        // console.log(output);
         const { actionTraces } = ActionTraces.fromBinary(output.data.mapOutput.value);
         for ( const actionTrace of actionTraces ) {
             console.log(actionTrace);

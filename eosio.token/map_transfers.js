@@ -2,7 +2,7 @@ import { Substreams, download } from "substreams";
 
 // User input
 const host = "eos.firehose.eosnation.io:9001";
-const substream = "https://eos.mypinata.cloud/ipfs/QmbttxBK9FbV8E8g8g8jp8rpYDvK8QzEwSx4bQmafngXpJ";
+const substream = "https://eos.mypinata.cloud/ipfs/QmfJGpVs9tdNHAjVQouTJ9GfaPKaxMEgHWEJEdzBQiAvhp";
 const outputModules = ["map_transfers"];
 const startBlockNum = "2";
 const stopBlockNum = "1000";
@@ -23,9 +23,10 @@ const substreams = new Substreams(host, {
     if ( !TransferEvents) throw new Error("Could not find TransferEvents message type");
 
     substreams.on("mapOutput", output => {
+        console.log(output)
         const { items } = TransferEvents.fromBinary(output.data.mapOutput.value);
         for ( const item of items ) {
-            console.log(item);
+            // console.log(item);
         }
     });
 
