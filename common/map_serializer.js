@@ -3,7 +3,7 @@ import { decodeAccount, decodeCurrencyStats } from "../eosio.token/abi/eosio.tok
 
 // User input
 const host = "eos.firehose.eosnation.io:9001";
-const substream = "https://eos.mypinata.cloud/ipfs/QmPZmoPArzW84yh1tvYfcf1DtFUDGap6CTGcFccUKJr5YB";
+const substream = "https://eos.mypinata.cloud/ipfs/QmfE7kdRAPihhvij4ej3rUM2Sp3PcXQ9rTFCQPhPGB5dr5";
 const outputModules = ["map_db_ops"];
 const startBlockNum = "283000000";
 const stopBlockNum = "283001000";
@@ -20,7 +20,7 @@ const substreams = new Substreams(host, {
     const {modules, registry} = await download(substream);
     
     // Find Protobuf message types
-    const DBOps = registry.findMessage("sf.antelope.type.v2.DBOps");
+    const DBOps = registry.findMessage("sf.antelope.type.v1.DBOps");
     if ( !DBOps) throw new Error("Could not find DBOps message type");
     
     substreams.on("mapOutput", output => {

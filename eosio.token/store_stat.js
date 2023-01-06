@@ -24,8 +24,8 @@ const substreams = new Substreams(host, {
     const CurrencyStats = registry.findMessage("antelope.eosio.token.v1.CurrencyStats");
     if ( !CurrencyStats) throw new Error("Could not find CurrencyStats message type");
 
-    substreams.on("storeDeltas", output => { 
-        for ( const { key, newValue } of output.data.storeDeltas.deltas ) {
+    substreams.on("debugStoreDeltas", output => { 
+        for ( const { key, newValue } of output.data.debugStoreDeltas.deltas ) {
             if ( output.name == "store_stat") {
                 let [table_name, contract, symcode] = key.split(":");
                 symcode = Asset.SymbolCode.from(Name.from(symcode).value).toString();

@@ -17,9 +17,9 @@ const substreams = new Substreams(host, {
 (async () => {
     // download Substream from IPFS
     const {modules, registry} = await download(substream);
-    
+
     // Find Protobuf message types from registry
-    const ActionTraces = registry.findMessage("sf.antelope.type.v1.ActionTrace");
+    const ActionTraces = registry.findMessage("sf.antelope.type.v1.ActionTraces");
     if ( !ActionTraces) throw new Error("Could not find ActionTraces message type");
 
     substreams.on("mapOutput", output => {

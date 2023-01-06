@@ -24,8 +24,8 @@ const substreams = new Substreams(host, {
     const Account = registry.findMessage("antelope.eosio.token.v1.Account");
     if ( !Account) throw new Error("Could not find Account message type");
 
-    substreams.on("storeDeltas", output => { 
-        for ( const { key, newValue } of output.data.storeDeltas.deltas ) {
+    substreams.on("debugStoreDeltas", output => { 
+        for ( const { key, newValue } of output.data.debugStoreDeltas.deltas ) {
             if ( output.name == "store_accounts") {
                 let [table_name, owner, contract, symcode] = key.split(":");
                 symcode = Asset.SymbolCode.from(Name.from(symcode).value).toString();

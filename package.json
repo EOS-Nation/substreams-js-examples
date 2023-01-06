@@ -5,6 +5,6 @@
   },
   "dependencies": {
     "@greymass/eosio": "^0.6.8",
-    "substreams": "^0.1.5"
+    "substreams": "^0.2.0"
   }
 }

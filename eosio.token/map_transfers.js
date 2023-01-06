@@ -23,10 +23,9 @@ const substreams = new Substreams(host, {
     if ( !TransferEvents) throw new Error("Could not find TransferEvents message type");
 
     substreams.on("mapOutput", output => {
-        console.log(output)
         const { items } = TransferEvents.fromBinary(output.data.mapOutput.value);
         for ( const item of items ) {
-            // console.log(item);
+            console.log(item);
         }
     });
 
