@@ -23,7 +23,6 @@ const substreams = new Substreams(host, {
     if ( !ActionTraces) throw new Error("Could not find ActionTraces message type");
 
     substreams.on("mapOutput", output => {
-        // console.log(output);
         const { actionTraces } = ActionTraces.fromBinary(output.data.mapOutput.value);
         for ( const actionTrace of actionTraces ) {
             console.log(actionTrace);
