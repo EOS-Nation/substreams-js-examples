@@ -1,8 +1,8 @@
 import { Substreams, download } from "substreams";
-import { HOST, SUBSTREAM } from "./config";
+import { HOST, SUBSTREAM } from "./config.js";
 
 // User input
-const outputModules = ["map_db_ops"];
+const outputModules = ["map_block"];
 const startBlockNum = "283000000";
 const stopBlockNum = "283001000";
 

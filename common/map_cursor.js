@@ -1,5 +1,5 @@
 import { Substreams, download } from "substreams";
-import { HOST, SUBSTREAM } from "./config";
+import { HOST, SUBSTREAM } from "./config.js";
 
 // User input
 const outputModules = ["map_action_traces"];

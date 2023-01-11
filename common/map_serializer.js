@@ -1,6 +1,6 @@
 import { Substreams, download } from "substreams";
 import { decodeAccount, decodeCurrencyStats } from "../eosio.token/abi/eosio.token.js";
-import { HOST, SUBSTREAM } from "./config";
+import { HOST, SUBSTREAM } from "./config.js";
 
 // User input
 const outputModules = ["map_db_ops"];
